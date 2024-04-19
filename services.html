@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -15,6 +16,37 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Eliyas Kassaye</title>
+    <style>
+        .painike {
+            background-color: #0178ff; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            transition: background-color 0.3s; 
+        }
+
+        .painike:hover {
+            background-color: #0056b3; 
+        }
+        .services_description1 {
+            display: none;
+        }
+        #flip {
+            padding: 5px;
+            text-align: center;
+            background-color: #0178ff; 
+            color: white; 
+            border: none;
+            border-radius: 5px; 
+            transition: background-color 0.3s; 
+        }
+        #panel {
+          
+            display: none;
+        } 
+    </style>
 </head>
 
 <body>
@@ -28,7 +60,7 @@
             <div>
                 <i class="fa fa-close" id="global_menu_close_button"></i>
                 <li><a href="/"><i class="fa fa-home"></i> About</a></li>
-                <li><a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a></li>
+                <li><a href="quiz.html"><i class="fas fa-file-alt"></i> Quiz</a></li>
                 <li><a href="blogs.html"><i class="fas fa-pen-nib"></i> Weather</a></li>
                 <li><a href="services.html"><i class="fas fa-cog"></i> Services</a></li>
                 <li><a href="contact.html"><i class="fas fa-phone-square"></i> Contact</a></li>
@@ -49,7 +81,7 @@
             <!-- sidebar Content -->
             <div class="sidebar_content">
                 <!-- Long name can be applied so easily -->
-                <h1>Eliyas Kassaye</h1>
+                <h2>Eliyas Kassaye</h2>
                 <p>Ohjelmistokehittäjä</p>
                 <!-- Social Medias -->
                 <div class="social_media">
@@ -67,7 +99,7 @@
             <!-- Sidebar Navigation -->
             <ul class="sidebar_navigation" id="sidebar_navigation">
                 <li><a href="/">About</a></li>
-                <li><a href="resume.html">Resume</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
                 <li><a href="blogs.html">Weather</a></li>
                 <li><a href="services.html" class="active">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -81,58 +113,89 @@
             <div class="services_page">
                 <h2 class="title">My <span>Services</span></h2>
                 <hr class="line">
-                <!-- Services Row -->
+                <!-- Services Row 1 -->
+                
                 <div class="services_container">
+                    
                     <div class="services_box">
-                        <i class="fas fa-tablet-alt"></i>
-                        <h3 class="services_title">App Development</h3>
-                        <p class="services_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-                            nobis. Lorem ipsum dolor sit amet. </p>
+                   
+                        <i class="fas fa-tablet-alt"></i><br>
+                        <button class="painike esiin">Näytä</button>
+                        <button class="painike pois">Piilota</button>
+                        
+                        <div class="services_description1">
+                            <h3 class="services_title">App Development</h3>
+                            <p >Create stunning and user-friendly mobile applications for iOS and Android platforms.</p>
+                        </div>
+                        
+                        
                     </div>
                     <div class="services_box">
-                        <i class="fas fa-globe"></i>
-                        <h3 class="services_title">Website Development</h3>
-                        <p class="services_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-                            nobis. Lorem ipsum dolor sit amet. </p>
+                        <i class="fas fa-globe"></i><br>
+                        <button id="flip">Avaa tai sulje klikkamalla</button>
+                        <div class="services_description" id="panel">
+                            <h3 class="services_title">Website Development</h3>
+                            <p>Design and develop professional websites tailored to your business needs.</p>
+                        </div>
+                        
                     </div>
                 </div>
 
+                <!-- Services Row 2 -->
                 <div class="services_container">
                     <div class="services_box">
                         <i class="fas fa-pencil-ruler"></i>
                         <h3 class="services_title">Web Design</h3>
-                        <p class="services_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-                            nobis. Lorem ipsum dolor sit amet. </p>
+                        <div class="services_description">
+                            <p>Create visually appealing and intuitive user interfaces for websites and web applications.</p>
+                        </div>
                     </div>
                     <div class="services_box">
                         <i class="fas fa-drafting-compass"></i>
-                        <h3 class="services_title">Logo Desing</h3>
-                        <p class="services_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-                            nobis. Lorem ipsum dolor sit amet. </p>
+                        <h3 class="services_title">Logo Design</h3>
+                        <div class="services_description">
+                            <p>Design unique and memorable logos that represent your brand identity.</p>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Services Row 3 -->
                 <div class="services_container">
                     <div class="services_box">
                         <i class="fab fa-figma"></i>
-                        <h3 class="services_title">Figma Desing</h3>
-                        <p class="services_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-                            nobis. Lorem ipsum dolor sit amet. </p>
+                        <h3 class="services_title">Figma Design</h3>
+                        <div class="services_description">
+                            <p>Utilize Figma to create high-fidelity prototypes and collaborate with team members.</p>
+                        </div>
                     </div>
                     <div class="services_box">
                         <i class="fas fa-search-location"></i>
-                        <h3 class="services_title">SEO/Marketing</h3>
-                        <p class="services_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-                            nobis. Lorem ipsum dolor sit amet. </p>
+                        <h3 class="services_title">Graphic Design</h3>
+                        <div class="services_description">
+                            <p>Design visually appealing graphics for digital and print media.</p>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
-
     <script src="js/script.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".esiin").click(function() {
+                $(this).siblings(".services_description1").fadeIn();
+            });
+            $(".pois").click(function() {
+                $(this).siblings(".services_description1").fadeOut();
+            });
+        });
+
+        $(document).ready(function(){
+     $("#flip").click(function(){
+      $("#panel").slideToggle("slow");
+     });
+    });
+    </script>
 </body>
 
 </html>

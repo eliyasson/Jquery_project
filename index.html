@@ -91,7 +91,36 @@
         .right_profile span {
             color: #555;
         }
+        #generateRandomWordBtn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
+        #generateRandomWordBtn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Styling for the container displaying the random word */
+        #randomWordContainer {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #f8f9fa2c;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styling for the random word */
+        #randomWord {
+            font-size: 1.2rem;
+            color: #ffffff;
+           
+        }
         
     </style>
 </head>
@@ -107,7 +136,7 @@
             <div>
                 <i class="fa fa-close" id="global_menu_close_button"></i>
                 <li><a href="/"><i class="fa fa-home"></i> About</a></li>
-                <li><a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a></li>
+                <li><a href="quiz.html"><i class="fas fa-file-alt"></i> Quiz</a></li>
                 <li><a href="blogs.html"><i class="fas fa-pen-nib"></i> Weather</a></li>
                 <li><a href="services.html"><i class="fas fa-cog"></i> Services</a></li>
                 <li><a href="contact.html"><i class="fas fa-phone-square"></i> Contact</a></li>
@@ -126,7 +155,7 @@
             <!-- sidebar Content -->
             <div class="sidebar_content">
                 <!-- Long name can be applied so easily -->
-                <h1>Eliyas Kassaye</h1>
+                <h2>Eliyas Kassaye</h2>
                 <p>Ohjelmistokehittäjä</p>
                 <!-- Social Medias -->
                 <div class="social_media">
@@ -144,7 +173,7 @@
             <!-- Sidebar Navigation -->
             <ul class="sidebar_navigation" id="sidebar_navigation">
                 <li><a href="/" class="active">About</a></li>
-                <li><a href="resume.html">Resume</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
                 <li><a href="blogs.html">Weather</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -176,7 +205,12 @@
                             </div>
                         </div>
                     </div>
+                    <button id="generateRandomWordBtn">Generate Random Word</button>
+                    <div id="randomWordContainer">
+                        <p id="randomWord"></p>
+                    </div>
                 </div>
+                
             </header>
             
             <!-- About Page -->
@@ -191,23 +225,7 @@
                         I have a passion for creating visually appealing and user-friendly web applications. In addition to my ongoing studies, I am actively pursuing Full Stack 
                         Development on Udemy to broaden my skill set and deepen my understanding of the complete web development stack.</h3>
                 </div>
-                <div class="about_profile">
-                    <ul class="left_profile">
-                        <li><span class="profile_title">Date of Birth</span><span>Nov 30, 1999</span></li>
-                        <li><span class="profile_title">Gender</span><span>Male</span></li>
-                    
-                        <li><span class="profile_title">Nationality</span><span>Ethiopian</span></li>
-                        <li><span class="profile_title">Website</span><span>eliyasson.github.io/Eliyas-Portfolio/</span></li>
-                    </ul>
-
-                    <ul class="right_profile">
-                        <li><span class="profile_title">Profession</span><span>OHJELMISTOKEHITTÄJÄ</span></li>
-                        <li><span class="profile_title">Address</span><span>Juustenintie 3 B</span></li>
-                        <li><span class="profile_title">Contact</span><span>+358 4053 90711</span></li>
-                        <li><span class="profile_title">Email</span><span>eliyas.kassaye@edu.hel.fi</span></li>
-                
-                    </ul>
-                </div>
+               
 
             </div>
         </div>
@@ -243,7 +261,33 @@
             });
         });
         </script>
-        
+       
+       <script>
+        // Function to fetch a random word from the Random Word API
+        function fetchRandomWord() {
+            // Fetch data from the Random Word API
+            fetch('https://random-word-api.herokuapp.com/word?number=1')
+                .then(response => {
+                    // Check if the request was successful
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    // Parse the JSON response
+                    return response.json();
+                })
+                .then(data => {
+                    // Update the DOM with the random word
+                    document.getElementById('randomWord').textContent = data[0]; // The API returns an array with one word
+                })
+                .catch(error => {
+                    // Handle any errors
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
+    
+        // Event listener for the button click
+        document.getElementById('generateRandomWordBtn').addEventListener('click', fetchRandomWord);
+    </script>
         
         
 </body>
