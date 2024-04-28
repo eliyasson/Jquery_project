@@ -811,7 +811,7 @@ li .profile_title {
 
 .messages .message.left .avatar {
 	float: left;
-	background: url('./img/bot.jpg');
+	background: url('../img/bot1.png');
 }
 
 .messages .message.left .text_wrapper {
@@ -833,7 +833,7 @@ li .profile_title {
 
 .messages .message.right .avatar {
 	float: right;
-	background: url('./img/guy.jpg');
+	background: url('../img/guy.jpg');
 }
 
 .messages .message.right .text_wrapper {
@@ -856,9 +856,10 @@ li .profile_title {
 
 .bottom_wrapper {
 	background-color: #fff;
-	padding: 20px;
+	padding: 10px;
 	bottom: 0;
 	display: flex;
+    flex-direction: row;
 }
 
 .bottom_wrapper #msg_input {
@@ -868,6 +869,25 @@ li .profile_title {
 	border: 1px solid #bcbdc0;
 	border-radius: 50px;
 	margin-right: 15px;
+}
+#msg_input {
+    flex-grow: 1; /* Allows the input field to take the remaining space */
+    padding: 5px;
+    margin-right: 10px;
+}
+#send_button {
+    padding: 10px;
+    cursor: pointer;
+}
+@media (max-width: 600px) {
+    .bottom_wrapper {
+        flex-direction: column; /* Stack the input and button vertically */
+    }
+
+    #msg_input {
+        margin-right: 0; /* Remove right margin to align vertically */
+        margin-bottom: 10px; /* Add bottom margin to separate from button */
+    }
 }
 
 .app_button_1 {
