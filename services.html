@@ -18,17 +18,17 @@
     <title>Eliyas Kassaye</title>
     <style>
         .painike {
-            background-color: #0178ff; 
-            color: white; 
-            border: none; 
-            padding: 10px 20px; 
-            cursor: pointer; 
-            border-radius: 5px; 
+            background-color: #0178ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
             transition: background-color 0.3s; 
         }
 
         .painike:hover {
-            background-color: #0056b3; 
+            background-color: #0056b3;
         }
         .services_description1 {
             display: none;
@@ -39,13 +39,64 @@
             background-color: #0178ff; 
             color: white; 
             border: none;
-            border-radius: 5px; 
-            transition: background-color 0.3s; 
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
         #panel {
           
             display: none;
         } 
+        .painike1 {
+            background-color: #0178ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        .painike1:hover {
+            background-color: #0056b3;
+        }
+
+        .gFontti {
+            font-family: 'Island Moments', cursive;
+            font-family: 'Moon Dance', cursive;
+            color: slateblue;
+            font-size: 16px;
+            background: #FFD0C8;
+            display: none;
+            border: 1px solid black;
+            width: 200px;
+            margin: 4px;
+            padding: 10px;
+        }
+        .toggle-button {
+        background-color: #0178ff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        font-size: 16px;
+        }
+
+        .toggle-button:hover {
+            background-color: #0056b3;
+        }
+
+        .description-text {
+            font-family: 'Island Moments', cursive;
+            font-family: 'Moon Dance', cursive;
+            color: slateblue;
+            background: #FFD0C8;
+            border: 1px solid black;
+            margin: 4px;
+            padding: 10px;
+        }
     </style>
 </head>
 
@@ -63,7 +114,7 @@
                 <li><a href="quiz.html"><i class="fas fa-file-alt"></i> Quiz</a></li>
                 <li><a href="blogs.html"><i class="fas fa-pen-nib"></i> Weather</a></li>
                 <li><a href="services.html"><i class="fas fa-cog"></i> Services</a></li>
-                <li><a href="contact.html"><i class="fas fa-phone-square"></i> Contact</a></li>
+                <li><a href="contact.html"><i class="fas fa-phone-square"></i>ChatBot</a></li>
             </div>
         </ul>
 
@@ -85,9 +136,9 @@
                 <p>Ohjelmistokehittäjä</p>
                 <!-- Social Medias -->
                 <div class="social_media">
-                    <a href="https://facebook.com/"><i class="fab fa-facebook"></i></a>
-                    <a href="https://github.com/"><i class="fab fa-github"></i></a>
-                    <a href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/eliyas-kassaye/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://eliyasson.github.io/Eliyas-Portfolio/" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/eliiyas_t/" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
@@ -102,7 +153,7 @@
                 <li><a href="quiz.html">Quiz</a></li>
                 <li><a href="blogs.html">Weather</a></li>
                 <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html">ChatBot</a></li>
 
             </ul>
 
@@ -133,7 +184,7 @@
                     <div class="services_box">
                         <i class="fas fa-globe"></i><br>
                         <button id="flip">Avaa tai sulje klikkamalla</button>
-                        <div class="services_description" id="panel">
+                        <div id="panel">
                             <h3 class="services_title">Website Development</h3>
                             <p>Design and develop professional websites tailored to your business needs.</p>
                         </div>
@@ -147,14 +198,18 @@
                         <i class="fas fa-pencil-ruler"></i>
                         <h3 class="services_title">Web Design</h3>
                         <div class="services_description">
-                            <p>Create visually appealing and intuitive user interfaces for websites and web applications.</p>
+                            <button class="painike1">Näytä tekstit</button>
+                            <div class="gFontti" id="d1">Create visually appealing</div>
+                            <div class="gFontti" id="d2">Intuitive user interfaces for websites</div>
+                            <div class="gFontti" id="d3">Web applications</div>
                         </div>
                     </div>
                     <div class="services_box">
                         <i class="fas fa-drafting-compass"></i>
                         <h3 class="services_title">Logo Design</h3>
                         <div class="services_description">
-                            <p>Design unique and memorable logos that represent your brand identity.</p>
+                            <button class="toggle-button">Näytä/piilota kuvaus</button>
+                            <p class="description-text" style="display: none;">Design unique and memorable logos that represent your brand identity.</p>
                         </div>
                     </div>
                 </div>
@@ -191,10 +246,45 @@
         });
 
         $(document).ready(function(){
-     $("#flip").click(function(){
-      $("#panel").slideToggle("slow");
-     });
+        $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+        });
+        });
+
+        
+    </script>
+    <script>
+        /* $(document).ready(function() {
+            // Toggle visibility of description text on button click
+            $(".painike").click(function() {
+                // Use fadeToggle instead of fadeIn for better UX
+                $("#d1").delay(500).fadeIn(1500);
+                $("#d2").delay(1000).fadeIn(1500);
+                $("#d3").delay(2000).fadeIn(1500);
+            });
+        }); */
+
+        $(document).ready(function() {
+        $(".painike1").click(function() {
+            $("#d1, #d2, #d3").each(function(index, element) {
+                if ($(element).is(":visible")) {
+                    $(element).fadeOut(1500);
+                } else {
+                    $(element).delay(index * 500).fadeIn(1500);
+                }
+            });
+        });
     });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Add a click event listener to the toggle button
+            $(".toggle-button").click(function() {
+                // Toggle the visibility of the description text with a slow fade effect
+                $(this).siblings(".description-text").fadeToggle("slow");
+            });
+        });
     </script>
 </body>
 
